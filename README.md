@@ -1,4 +1,11 @@
 #### vtmysql5devp2
+
+
+#####configuration
+######startup
+
+
+
 #####Manipulating data
 ######basics
 ######warnings
@@ -48,7 +55,12 @@ Or (must in unix)
 mysql> system perror 2  (or  \! perror 2)
 ```
 
-
+#####inserting data
+######demonstrations
+ternary operator, and get date of 25 years ago.
+```
+CONCAT('San' , IF(MOD(DAY(CURDATE()),2),'Joe','Meo')),CURDATE()-INTERVAL 25 YEAR
+```
 
 
 
