@@ -3,7 +3,9 @@
 
 #####configuration
 ######startup
-
+```
+mysqld --verbose --help
+```
 
 
 #####Manipulating data
@@ -73,7 +75,85 @@ CONCAT('San' , IF(MOD(DAY(CURDATE()),2),'Joe','Meo')),CURDATE()-INTERVAL 25 YEAR
 
 
 
+#####indexes
+######Index basics
+index is a seperate table maintains row order for a column or comb of columns of a table  
+issues: slows data manipulation operation because it is dynamically maintained(addition storage)
 
+######defining indexes for table
+```
+show index from tbname\G
+```
+
+
+###### add indexes
+```
+alter table tbname add primary key(clname)
+alter table tbname add index(clname)
+alter table tbname add index idxname (clname)
+create index idxname on tbname(clname)
+drop index idxname on tbname
+```
+###### dropping indexes
+```
+drop index idxname on tbname
+alter table tbname drop index a, drop index b
+```
+######compound indexes
+```sql
+create table tbname(
+firstname varchar(10),
+lstaname varchar(20),
+.....,
+index fullname(firstname,lastname)
+);
+```
+######prefix
+
+only index first n chars.
+```sql
+create table country(
+name char(200),
+...,
+index (name(10))
+```
+
+note sub_part
+
+######fulltext index
+```sql
+create table tbname(
+clname varchar(100),
+FULLTEXT KEY keyname(clname)
+)
+```
+
+```
+select * from tbname where match (clname) against ('keywordxxxx');
+```
+
+search  text contains keyword1 OR keyword2
+```
+select * from tbname where match (clname) against ('keyword1 keyword2');
+```
+score means how similiar
+```
+select match(clname) against ('a b') Score , clname from tbname where match(clname) against('a b');
+```
+
+add + sign means mandatory  (keyword1 is mandatory)
+```
+select * from tbname where match (clname) against ('+keyword1 keyword2' IN BOOLEAN MODE);
+```
+
+add - sign means sentence with k2 can not have k1.
+```
+select * from tbname where match (clname) against ('-keyword1 keyword2' IN BOOLEAN MODE);
+```
+ywith query expansion
+```
+select * from tbname where match (clname) against ('keyword2' WITH QUERY EXPANSION);
+```
 
 
 #####efficiency check
