@@ -100,7 +100,10 @@ for each row
 insert into table2 values(OLD.clname1,OLD.clname2);
 ```
 
-
+######explor
+```
+show create trigger tgname\G
+```
 
 
 
