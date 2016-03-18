@@ -105,6 +105,35 @@ insert into table2 values(OLD.clname1,OLD.clname2);
 show create trigger tgname\G
 ```
 
+######trigger metadata
+```
+show triggers where `Trigger` = 'tgname'\G
+desc information_schema.triggers;
+```
+###### drop trigger
+
+trn (per trigger) and trg (per table) file  
+trn file is short(placeholder), trg file is long  
+
+trigger name may diff in database, not table!
+```
+drop triggger tgname;
+```
+
+######limitations
+cannot return a result set to client.  
+cannot manipulate rows in table used by statement that launched it.  
+changes to columns in current row must be performed in a BEFORE trigger
+
+
+
+
+
+
+
+
+
+
 
 
 
