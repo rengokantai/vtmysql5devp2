@@ -75,6 +75,37 @@ CONCAT('San' , IF(MOD(DAY(CURDATE()),2),'Joe','Meo')),CURDATE()-INTERVAL 25 YEAR
 
 
 
+
+
+
+
+#####Trigger
+######use of trigger.
+for data validation:  
+######syntax
+timing: before, after  
+op: insert update delete
+
+######exam
+```sql
+create trigger trigname before insert on tbname
+for each row
+set new.cls2 = month(new.cls3)
+```
+
+delete table1 and copy to table2:
+```sql
+create trigger tgname after delete on table1
+for each row
+insert into table2 values(OLD.clname1,OLD.clname2);
+```
+
+
+
+
+
+
+
 #####indexes
 ######Index basics
 index is a seperate table maintains row order for a column or comb of columns of a table  
