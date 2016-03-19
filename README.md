@@ -98,6 +98,8 @@ LOAD DATA INFILE 'file.txt' into table tbname ignore 1 lines;
 LOAD DATA INFILE 'file.txt' into table tbname(clname2,clname1,clname3);
 LOAD DATA INFILE 'file.txt' into table tbname(@skip,clname1,clname3);  //skip somw column
 ```
+###### convert data on import
+
 
 
 
