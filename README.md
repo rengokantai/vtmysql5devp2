@@ -129,7 +129,28 @@ changes to columns in current row must be performed in a BEFORE trigger
 
 
 
+#####event
+######event basic
+store in mysql.event table.
+######event execution
+```
+set global event_scheduler = ON
+```
+examine last_executed column for event in information_schema.events table
+######event syntax
+######schedule type
+at < timestamp>, or immediate  
+recurring events:
+every <intervel> starts <exp> ends <exp>
 
+
+######event metadata
+```
+show create event evtname\G
+```
+```
+show events
+```
 
 
 
