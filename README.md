@@ -75,6 +75,40 @@ CONCAT('San' , IF(MOD(DAY(CURDATE()),2),'Joe','Meo')),CURDATE()-INTERVAL 25 YEAR
 
 
 
+#####importing data
+#######importing datac(by default, tab seperated)
+much faster than inserts.  
+```
+LOAD DATA INFILE 'file.txt' into table tbname;
+```
+\N : null (If we want to change delimiter files,  like \N = @N) add
+```
+escaped by '@'
+```
+######importing nontab
+```
+LOAD DATA INFILE 'file.txt' into table tbname fields terminated by ',' enclosed by '"' lines terminated by '\r';
+```
+######skipping header lines
+```
+LOAD DATA INFILE 'file.txt' into table tbname ignore 1 lines;
+```
+######change import column order
+```
+LOAD DATA INFILE 'file.txt' into table tbname(clname2,clname1,clname3);
+LOAD DATA INFILE 'file.txt' into table tbname(@skip,clname1,clname3);  //skip somw column
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
