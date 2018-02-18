@@ -111,21 +111,39 @@ ternary operator, and get date of 25 years ago.
 ```
 CONCAT('San' , IF(MOD(DAY(CURDATE()),2),'Joe','Meo')),CURDATE()-INTERVAL 25 YEAR
 ```
-[MOD function](https://www.w3resource.com/mysql/mathematical-functions/mysql-mod-function.php)
-[DAY function](https://www.w3resource.com/mysql/date-and-time-functions/mysql-day-function.php)
-[CURDATE function](https://www.w3resource.com/mysql/date-and-time-functions/mysql-curdate-function.php)
+functions
+- [MOD function](https://www.w3resource.com/mysql/mathematical-functions/mysql-mod-function.php)
+- [DAY function](https://www.w3resource.com/mysql/date-and-time-functions/mysql-day-function.php)
+- [CURDATE function](https://www.w3resource.com/mysql/date-and-time-functions/mysql-curdate-function.php)
 
 
+### Deafult Values on Insert
+```
+INSERT INTO tbname values(1,'str', DEFAULT);
+```
+
+### AUTO_INCREMENT on Insert
+###### 3:29
+AUTO_INCREMENT will ignore NULL statement.
 
 
+### AUTO_INCREMENT Issues
+change starting number
+```
+alter table tbname AUTO_INCREMENT=100;
+```
+###### 4:19
+We must delete entry with id is bigger AUTO_INCREMENT value inorder to 
+reset ```AUTO_INCREMENT``` value smaller to current one
 
-
-
-
-
-
-
-
+### LAST_INSERT_ID Function
+```
+SELECT LAST_INSERT_ID();
+```
+session var
+```
+SET @lastID = LAST_INSERT_ID();
+```
 
 #####importing data
 #######importing datac(by default, tab seperated)
