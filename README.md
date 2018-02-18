@@ -39,17 +39,28 @@ Two kinds of SQL Mode
 - Elevates warnings to errors(important)
 
 
-### Changing Syntax Interpretationura
+### Changing Syntax Interpretation
+```
+SELECT 4 || 5;  -- means or
+```
+change this or to concat:
+```
+SET sql_mode = PIPES_AS_CONCAT;
+```
 ```
 set sql_mode=ansi_quotes(not allow double quote as column name) ,pipes_as_concat,....
 ```
-[see here to check sql_mode](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiLm8KBvcjLAhWqlIMKHVlnDjsQFggdMAA&url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Fen%2Fsql-mode.html&usg=AFQjCNH9tpAIuRZz737R7FV0xrh7Wd4j0g&sig2=kaywR6VXnuaevNuiuN4K5Q)
+[see here to check sql_mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 
 restore:
 ```
-set sql_mode='';
+set sql_mode=@@global.sql_mode;
 ```
 ### Elevating Warnings to Errors
+default sql mode
+```
+set sql_mode='';
+```
 ```
 mysql -u root --show-warnings
 ```
@@ -63,13 +74,21 @@ set sql_mode=traditional  //warning=error!
 ```
 ### Interpreting Error Messages
 error code:  
-server error: <2000  
-client error >=2000  
+- server error: <2000  
+- client error >=2000  
+state code.
+- general  
+Error message text
+
 ### Note Warnings
+###### 3:42
+If we set
 ```
 set sql_notes = 0
 ```
+then
 note warnings will no longer be returned.
+
 ### System Error Warnings
 (HY000) file system error code
 ````
