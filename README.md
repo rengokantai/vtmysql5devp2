@@ -91,8 +91,8 @@ note warnings will no longer be returned.
 
 ### System Error Warnings
 (HY000) file system error code
-````
-select * from tbname into outfile 'c:/txt';
+```
+ysqselect * from tbname into outfile 'c:/txt';
 ```
 
 get error code
@@ -105,11 +105,16 @@ mysql> system perror 2  (or  \! perror 2)
 ```
 
 ## Inserting Data
+### Inserting Data
 ### INSERT Demonstrations
 ternary operator, and get date of 25 years ago.
 ```
 CONCAT('San' , IF(MOD(DAY(CURDATE()),2),'Joe','Meo')),CURDATE()-INTERVAL 25 YEAR
 ```
+[MOD function](https://www.w3resource.com/mysql/mathematical-functions/mysql-mod-function.php)
+[DAY function](https://www.w3resource.com/mysql/date-and-time-functions/mysql-day-function.php)
+[CURDATE function](https://www.w3resource.com/mysql/date-and-time-functions/mysql-curdate-function.php)
+
 
 
 
