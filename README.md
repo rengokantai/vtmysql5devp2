@@ -425,3 +425,13 @@ How Do Triggers Differ From Procedures
 - Stored as files in the database directory
 - Not called directly - automatically invoked
 - No parameters
+
+
+
+### Uses for Triggers
+Common Uses for Triggers
+- Data Validation
+- Populating derived columns
+- Change tracking and activity logging
+- Data integrity and consistency
+- Archiving deleted rows
