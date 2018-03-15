@@ -358,3 +358,39 @@ indexed column vs non-indexed column:
 explain select * from test;
 ```
 note the following : type (const vs all), row(1 vs 100000..), key(primary vs null)
+
+
+
+
+
+
+
+
+## Stored Routine Basics
+### Procedures and Functions
+purpose of a procedure:
+- perform complex operations as a unit of work  
+
+Why Use Procedures
+- Much more efficient than remote scripts
+- Eliminates client-to-server round trips
+- Security
+  - Resource names not exposed
+  - Procedure has privileges, not user
+  - Can test parameter values for hacking
+- Code resides with data it accesses
+
+
+### Basic Create Function Syntax
+```
+create function fname(original float, basis float) returns float return truncate(original/basis)*basis;
+```
+### Invoking a Function
+```
+select fname(1.87,.25);
+```
+
+### Basic Create Procedure Syntax
+```
+create procedure pname (ccode Char(3)) select co.name, count(*) cities from city ci join country co on code = countrycode where code=ccode;
+```
