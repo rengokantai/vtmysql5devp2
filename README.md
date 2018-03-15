@@ -383,7 +383,7 @@ Why Use Procedures
 
 ### Basic Create Function Syntax
 ```
-create function fname(original float, basis float) returns float return truncate(original/basis)*basis;
+create function dbname.fname(original float, basis float) returns float return truncate(original/basis)*basis;
 ```
 ### Invoking a Function
 ```
@@ -392,5 +392,36 @@ select fname(1.87,.25);
 
 ### Basic Create Procedure Syntax
 ```
-create procedure pname (ccode Char(3)) select co.name, count(*) cities from city ci join country co on code = countrycode where code=ccode;
+create procedure dbname.pname (ccode Char(3)) select co.name, count(*) cities from city ci join country co on code = countrycode where code=ccode;
 ```
+
+### Invoking a Procedure
+```
+call pname(param);
+```
+
+### Database Association
+
+### Stored Routine Metadata
+###### 03:55
+```
+show function status like 'fname'\G
+```
+
+###### 05:35
+```
+select * from information_schema.routines where routine_name=''
+```
+
+###### 07:01
+```
+```
+
+## Triggers
+### Trigger Basics
+###### 2:22 
+How Do Triggers Differ From Procedures
+- Associated with a specific table
+- Stored as files in the database directory
+- Not called directly - automatically invoked
+- No parameters
